@@ -1,0 +1,11 @@
+.inputFilter {
+  height: 38px;
+  background: rgb(197, 197, 246);
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 450px;
+}

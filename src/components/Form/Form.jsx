@@ -1,5 +1,5 @@
 import React from 'react';
-
+import s from './Form.module.css';
 import { useDispatch } from 'react-redux';
 import { addContactThunk } from 'redux/operations/contactsThunk';
 
@@ -19,9 +19,10 @@ export const MyForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={s.form}>
       <label>
         <input
+          className={s.inputField}
           placeholder="Name"
           type="text"
           name="name"
@@ -33,6 +34,7 @@ export const MyForm = () => {
 
       <label>
         <input
+          className={s.inputField}
           placeholder="Phone number"
           type="tel"
           name="number"
@@ -42,7 +44,9 @@ export const MyForm = () => {
         />
       </label>
 
-      <button type="submit">Add Contact</button>
+      <button type="submit" className={s.button}>
+        Add Contact
+      </button>
     </form>
   );
 };

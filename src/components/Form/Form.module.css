@@ -1,0 +1,45 @@
+.container {
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+label {
+  width: 50%;
+}
+
+.inputField {
+  height: 40px;
+  background: #c6e3f8;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 50px;
+  box-shadow: inset 4px #b2d7ff;
+  text-indent: 20px;
+}
+
+.button {
+  height: 40px;
+  width: 350px;
+  background: #ecf0f3;
+  border: 1px solid transparent;
+  outline: none;
+  border-radius: 50px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  box-shadow: inset 4px #b2d7ff;
+  padding: 0 20px;
+  transition: all 200ms ease-in-out;
+}
+
+button:hover {
+  box-shadow: none;
+  color: white;
+  background: rgb(197, 197, 246);
+}
