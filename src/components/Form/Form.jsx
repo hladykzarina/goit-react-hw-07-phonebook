@@ -1,21 +1,31 @@
 import React from 'react';
 import s from './Form.module.css';
-import { useDispatch } from 'react-redux';
-import { addContactThunk } from 'redux/operations/contactsThunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContactThunk } from '../../redux/operations/contactsThunk';
+import { selectContacts } from '../../redux/selectors/selectors';
 
 export const MyForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
 
-    const newObj = {
-      name: e.target.elements.name.value,
-      number: e.target.elements.number.value,
-    };
-    dispatch(addContactThunk(newObj));
+    const nameExist = contacts.find(contact => contact.name === name);
+    const numberExist = contacts.find(contact => contact.number === number);
 
-    e.target.reset();
+    if (nameExist) {
+      alert(`${name} is already in contacts`);
+    } else if (numberExist) {
+      alert(`Number ${number} is already in contacts`);
+    } else {
+      const contact = { name, number };
+      dispatch(addContactThunk(contact));
+      form.reset();
+    }
   };
 
   return (
